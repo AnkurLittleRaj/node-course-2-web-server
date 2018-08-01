@@ -2,6 +2,7 @@ const express = require ('express');
 const hbs = require ('hbs');
 var app = express();
 const fs = require ('fs');
+const port = process.env.PORT || 3000;
 app.set('view engine','hbs');
 hbs.registerPartials(__dirname+'/views/partials');
 hbs.registerHelper('getfullyr', () =>{
@@ -54,6 +55,6 @@ res.render('about.hbs',{
     
 });
 })
-app.listen(3000,() =>{
-    console.log('server is up');
+app.listen(port,() =>{
+    console.log(`server is up on port ${port}`);
 });
